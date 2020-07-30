@@ -11,11 +11,16 @@ import {
 import * as actions from './actions'
 import { FETCH_POKEMON_DETAILS } from './constants'
 
-export function* fetchPokemonDetails(action) {
-  const { pokemonName } = action
+export function* fetchPokemon(pokemonName) {
   const url = POKEAPI_POKEMON_NAME_DETAILS_URL.replace(`:${POKEMON_NAME_PARAM}`, pokemonName)
 
-  const response = yield call(request, url, { method: 'GET' })
+  return yield call(request, url, { method: 'GET' })
+}
+
+export function* fetchPokemonDetails(action) {
+  const { pokemonName } = action
+
+  const response = yield call(fetchPokemon, pokemonName)
   yield put(actions.fetchPokemonDetailsSuccess(response))
 }
 

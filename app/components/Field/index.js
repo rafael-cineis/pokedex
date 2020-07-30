@@ -31,7 +31,7 @@ Field.propTypes = {
     defaultMessage: PropTypes.string,
   }).isRequired,
   value: PropTypes.any.isRequired,
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 }
 
 export default Field

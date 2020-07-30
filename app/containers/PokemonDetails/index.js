@@ -18,6 +18,7 @@ import Loader from 'components/Loader'
 import Field from 'components/Field'
 import PokemonTypeField from 'components/PokemonTypeField'
 import PokemonStats from 'components/PokemonStats'
+import PokemonEvolutions from 'containers/PokemonEvolutions'
 
 import { POKEMON_NAME_PARAM } from 'containers/App/urls'
 
@@ -79,6 +80,9 @@ export function PokemonDetails(props) {
         </div>
         <div>
           <PokemonStats stats={stats} />
+        </div>
+        <div>
+          <PokemonEvolutions pokemon={pokemon} />
         </div>
       </div>
     )
