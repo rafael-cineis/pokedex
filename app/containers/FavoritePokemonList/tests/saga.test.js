@@ -8,8 +8,8 @@
 
 // const generator = favoritePokemonListSaga();
 
-describe("favoritePokemonListSaga Saga", () => {
-  it("Expect to have unit tests specified", () => {
-    expect(true).toEqual(false);
-  });
-});
+describe('favoritePokemonListSaga Saga', () => {
+  it('Expect to have unit tests specified', () => {
+    expect(true).toEqual(false)
+  })
+})

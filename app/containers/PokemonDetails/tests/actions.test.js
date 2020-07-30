@@ -1,4 +1,4 @@
-import { fetchEvolutions } from '../actions'
+import { fetchPokemonDetails } from '../actions'
 import { FETCH_POKEMON_DETAILS } from '../constants'
 
 describe('PokemonDetails actions', () => {
@@ -7,7 +7,7 @@ describe('PokemonDetails actions', () => {
       const expected = {
         type: FETCH_POKEMON_DETAILS,
       }
-      expect(fetchEvolutions()).toEqual(expected)
+      expect(fetchPokemonDetails()).toEqual(expected)
     })
   })
 })

@@ -4,9 +4,9 @@
 
 /* eslint strict: ["off"] */
 
-'use strict';
+'use strict'
 
-const componentExists = require('../utils/componentExists');
+const componentExists = require('../utils/componentExists')
 
 module.exports = {
   description: 'Add an unconnected component',
@@ -16,14 +16,14 @@ module.exports = {
       name: 'name',
       message: 'What should it be called?',
       default: 'Button',
-      validate: value => {
+      validate: (value) => {
         if (/.+/.test(value)) {
           return componentExists(value)
             ? 'A component or container with this name already exists'
-            : true;
+            : true
         }
 
-        return 'The name is required';
+        return 'The name is required'
       },
     },
     {
@@ -45,7 +45,7 @@ module.exports = {
       message: 'Do you want to load the component asynchronously?',
     },
   ],
-  actions: data => {
+  actions: (data) => {
     // Generate index.js and index.test.js
     const actions = [
       {
@@ -60,7 +60,7 @@ module.exports = {
         templateFile: './component/test.js.hbs',
         abortOnFail: true,
       },
-    ];
+    ]
 
     // If the user wants i18n messages
     if (data.wantMessages) {
@@ -69,7 +69,7 @@ module.exports = {
         path: '../../app/components/{{properCase name}}/messages.js',
         templateFile: './component/messages.js.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     // If the user wants Loadable.js to load the component asynchronously
@@ -79,14 +79,14 @@ module.exports = {
         path: '../../app/components/{{properCase name}}/Loadable.js',
         templateFile: './component/loadable.js.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     actions.push({
       type: 'prettify',
       path: '/components/',
-    });
+    })
 
-    return actions;
+    return actions
   },
-};
+}

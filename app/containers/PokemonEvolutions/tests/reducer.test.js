@@ -1,20 +1,20 @@
 // import produce from 'immer';
-import pokemonEvolutionsReducer from "../reducer";
+import pokemonEvolutionsReducer from '../reducer'
 // import { someAction } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */
-describe("pokemonEvolutionsReducer", () => {
-  let state;
+describe('pokemonEvolutionsReducer', () => {
+  let state
   beforeEach(() => {
     state = {
       // default state params here
-    };
-  });
+    }
+  })
 
-  it("returns the initial state", () => {
-    const expectedResult = state;
-    expect(pokemonEvolutionsReducer(undefined, {})).toEqual(expectedResult);
-  });
+  it('returns the initial state', () => {
+    const expectedResult = state
+    expect(pokemonEvolutionsReducer(undefined, {})).toEqual(expectedResult)
+  })
 
   /**
    * Example state change comparison
@@ -29,4 +29,4 @@ describe("pokemonEvolutionsReducer", () => {
    *   expect(appReducer(state, someAction())).toEqual(expectedResult);
    * });
    */
-});
+})

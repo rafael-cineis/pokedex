@@ -4,43 +4,43 @@
  *
  */
 
-import React from "react";
-import { render } from "react-testing-library";
-import { IntlProvider } from "react-intl";
+import React from 'react'
+import { render } from 'react-testing-library'
+import { IntlProvider } from 'react-intl'
 // import 'jest-dom/extend-expect'; // add some helpful assertions
 
-import { FavoritePokemonList } from "../index";
-import { DEFAULT_LOCALE } from "../../../i18n";
+import { FavoritePokemonList } from '../index'
+import { DEFAULT_LOCALE } from '../../../i18n'
 
-describe("<FavoritePokemonList />", () => {
-  it("Expect to not log errors in console", () => {
-    const spy = jest.spyOn(global.console, "error");
-    const dispatch = jest.fn();
+describe('<FavoritePokemonList />', () => {
+  it('Expect to not log errors in console', () => {
+    const spy = jest.spyOn(global.console, 'error')
+    const dispatch = jest.fn()
     render(
       <IntlProvider locale={DEFAULT_LOCALE}>
         <FavoritePokemonList dispatch={dispatch} />
       </IntlProvider>
-    );
-    expect(spy).not.toHaveBeenCalled();
-  });
+    )
+    expect(spy).not.toHaveBeenCalled()
+  })
 
-  it("Expect to have additional unit tests specified", () => {
-    expect(true).toEqual(false);
-  });
+  it('Expect to have additional unit tests specified', () => {
+    expect(true).toEqual(false)
+  })
 
   /**
    * Unskip this test to use it
    *
    * @see {@link https://jestjs.io/docs/en/api#testskipname-fn}
    */
-  it.skip("Should render and match the snapshot", () => {
+  it.skip('Should render and match the snapshot', () => {
     const {
-      container: { firstChild }
+      container: { firstChild },
     } = render(
       <IntlProvider locale={DEFAULT_LOCALE}>
         <FavoritePokemonList />
       </IntlProvider>
-    );
-    expect(firstChild).toMatchSnapshot();
-  });
-});
+    )
+    expect(firstChild).toMatchSnapshot()
+  })
+})

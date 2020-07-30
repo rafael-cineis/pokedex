@@ -1,20 +1,20 @@
 // import produce from 'immer';
-import favoritePokemonListReducer from "../reducer";
+import favoritePokemonListReducer from '../reducer'
 // import { someAction } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */
-describe("favoritePokemonListReducer", () => {
-  let state;
+describe('favoritePokemonListReducer', () => {
+  let state
   beforeEach(() => {
     state = {
       // default state params here
-    };
-  });
+    }
+  })
 
-  it("returns the initial state", () => {
-    const expectedResult = state;
-    expect(favoritePokemonListReducer(undefined, {})).toEqual(expectedResult);
-  });
+  it('returns the initial state', () => {
+    const expectedResult = state
+    expect(favoritePokemonListReducer(undefined, {})).toEqual(expectedResult)
+  })
 
   /**
    * Example state change comparison
@@ -29,4 +29,4 @@ describe("favoritePokemonListReducer", () => {
    *   expect(appReducer(state, someAction())).toEqual(expectedResult);
    * });
    */
-});
+})
