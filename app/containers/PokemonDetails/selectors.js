@@ -17,3 +17,8 @@ export const selectPokemonDetailsIsLoading = createSelector(
   selectPokemon,
   substate => substate.isLoading,
 )
+
+export const selectPokemonDetailsError = createSelector(
+  selectPokemon,
+  substate => substate.error,
+)

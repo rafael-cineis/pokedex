@@ -13,4 +13,8 @@ export default defineMessages({
     id: `${scope}.height`,
     defaultMessage: 'Altura',
   },
+  thereIsNoPokemonWithThisName: {
+    id: `${scope}.thereIsNoPokemonWithThisName`,
+    defaultMessage: 'Nenhum Pokémon com o nome "{pokemonName}" foi encontrado!',
+  },
 })

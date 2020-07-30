@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { compose } from 'redux'
+import { FormattedMessage } from 'react-intl'
 import isEmpty from 'lodash/isEmpty'
 
 import { useInjectSaga } from 'utils/injectSaga'
@@ -25,6 +26,7 @@ import { POKEMON_NAME_PARAM } from 'containers/App/urls'
 import {
   selectPokemonDetails,
   selectPokemonDetailsIsLoading,
+  selectPokemonDetailsError,
 } from './selectors'
 import { fetchPokemonDetails } from './actions'
 import reducer from './reducer'
@@ -41,6 +43,7 @@ export function PokemonDetails(props) {
     },
     isLoading,
     pokemon,
+    error,
   } = props
   const pokemonName = params[POKEMON_NAME_PARAM]
 
@@ -88,6 +91,15 @@ export function PokemonDetails(props) {
     )
   }
 
+  if (!isLoading && error) {
+    return (
+      <FormattedMessage
+        {...messages.thereIsNoPokemonWithThisName}
+        values={{ pokemonName }}
+      />
+    )
+  }
+
   return isLoading ? <Loader /> : renderDetails()
 }
 
@@ -96,11 +108,13 @@ PokemonDetails.propTypes = {
   match: PropTypes.object.isRequired,
   pokemon: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.object,
 }
 
 const mapStateToProps = createStructuredSelector({
   pokemon: selectPokemonDetails,
   isLoading: selectPokemonDetailsIsLoading,
+  error: selectPokemonDetailsError,
 })
 
 function mapDispatchToProps(dispatch) {

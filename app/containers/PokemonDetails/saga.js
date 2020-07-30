@@ -20,8 +20,12 @@ export function* fetchPokemon(pokemonName) {
 export function* fetchPokemonDetails(action) {
   const { pokemonName } = action
 
-  const response = yield call(fetchPokemon, pokemonName)
-  yield put(actions.fetchPokemonDetailsSuccess(response))
+  try {
+    const response = yield call(fetchPokemon, pokemonName)
+    yield put(actions.fetchPokemonDetailsSuccess(response))
+  } catch (error) {
+    yield put(actions.fetchPokemonDetailsFailure(error))
+  }
 }
 
 export default function* pokemonDetailsSaga() {
