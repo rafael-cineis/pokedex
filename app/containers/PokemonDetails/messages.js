@@ -15,6 +15,6 @@ export default defineMessages({
   },
   thereIsNoPokemonWithThisName: {
     id: `${scope}.thereIsNoPokemonWithThisName`,
-    defaultMessage: 'Nenhum Pokémon com o nome "{pokemonName}" foi encontrado!',
+    defaultMessage: 'Nenhum Pokémon com o nome/número "{pokemonName}" foi encontrado!',
   },
 })

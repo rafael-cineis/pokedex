@@ -13,6 +13,11 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 0 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const Component = props => (
