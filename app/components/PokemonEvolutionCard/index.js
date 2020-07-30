@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   text-align: center;
   padding: 8px;
-  margin: 0 8px;
+  margin: 0 8px 8px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 20px;
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
