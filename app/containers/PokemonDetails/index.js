@@ -20,6 +20,7 @@ import Field from 'components/Field'
 import PokemonTypeField from 'components/PokemonTypeField'
 import PokemonStats from 'components/PokemonStats'
 import PokemonEvolutions from 'containers/PokemonEvolutions'
+import FavoriteButton from 'containers/FavoriteButton'
 
 import { POKEMON_NAME_PARAM } from 'containers/App/urls'
 
@@ -73,6 +74,7 @@ export function PokemonDetails(props) {
           <Text big uppercase bold>
             {name}
           </Text>
+          <FavoriteButton pokemonId={pokemonName} />
           <Field
             label={messages.height}
             value={`${(height * 0.1).toFixed(2)}m`}

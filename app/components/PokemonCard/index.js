@@ -11,13 +11,14 @@ import startCase from 'lodash/startCase'
 
 import Pokeball from 'images/pokeball.png'
 
-import history from 'utils/history'
 import {
   POKEMON_DETAILS_PATH,
   POKEMON_NAME_PARAM,
 } from 'containers/App/urls'
+import history from 'utils/history'
+import FavoriteButton from 'containers/FavoriteButton'
 
-const PokemonButton = styled.button`
+const StyledPokemonCard = styled.a`
   padding: 8px;
   margin: 8px 16px;
   background: #fff;
@@ -44,6 +45,11 @@ const PokemonName = styled.h4`
   font-weight: bold;
 `
 
+const NumberWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 function PokemonCard(props) {
   const { name, number } = props
   const pokemonNumberZeroFilled = number.toString().padStart(3, '0')
@@ -54,23 +60,21 @@ function PokemonCard(props) {
   }
 
   return (
-    <PokemonButton
-      type="button"
-      onClick={handleClick}
-    >
+    <StyledPokemonCard onClick={handleClick}>
       {/*
         Placeholder image as PokeAPI doesn't return the Pokemon image in the list
         and we don't want to do a lot of uncessary requests here, leave to fetch
         the image inside the pokemon details page.
       */}
       <img src={Pokeball} alt="Pokeball" />
-      <p>
+      <NumberWrapper>
         {`Nº ${pokemonNumberZeroFilled}`}
-      </p>
+        <FavoriteButton pokemonId={name} />
+      </NumberWrapper>
       <PokemonName>
         {startCase(name)}
       </PokemonName>
-    </PokemonButton>
+    </StyledPokemonCard>
   )
 }
 
