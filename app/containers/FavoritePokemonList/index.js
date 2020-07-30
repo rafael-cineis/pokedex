@@ -25,6 +25,7 @@ import { fetchFavoritesPokemonList } from './actions'
 import reducer from './reducer'
 import saga from './saga'
 import messages from './messages'
+import { Wrapper } from './styles'
 
 export function FavoritePokemonList(props) {
   useInjectReducer({ key: 'favoritePokemonList', reducer })
@@ -39,7 +40,7 @@ export function FavoritePokemonList(props) {
   }, [props.favoritePokemonsMap])
 
   return (
-    <div>
+    <Wrapper>
       <h1>
         <FormattedMessage {...messages.favoritePokemons} />
       </h1>
@@ -52,7 +53,7 @@ export function FavoritePokemonList(props) {
           />
         ))}
       </PokemonList>
-    </div>
+    </Wrapper>
   )
 }
 
