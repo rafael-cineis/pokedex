@@ -5,7 +5,6 @@
  */
 
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
@@ -32,18 +31,7 @@ import saga from './saga'
 import messages from './messages'
 import Header from './Header'
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8px;
-`
-
-const PokemonList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-`
+import { Wrapper, PokemonList } from './styles'
 
 export function PokedexListPage(props) {
   useInjectReducer({ key: 'pokedexListPage', reducer })

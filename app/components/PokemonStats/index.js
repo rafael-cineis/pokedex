@@ -6,36 +6,11 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 import Label from 'components/Label'
-import Field from 'components/Field'
 
+import { Wrapper, StatsField } from './styles'
 import messages from './messages'
-
-const Wrapper = styled.div`
-  display: inline-block;
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 20px;
-  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
-
-  .statsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-`
-
-const StatsField = styled(Field)`
-  display: inline-block;
-  margin: 4px;
-  padding: 4px 8px;
-  background-color: ${props => props.color};
-  border-radius: 8px;
-  min-width: 80px;
-  text-align: center;
-`
 
 function PokemonStats({ stats }) {
   const hp = stats.find(statInfo => statInfo.stat.name === 'hp')

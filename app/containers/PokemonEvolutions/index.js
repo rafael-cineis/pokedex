@@ -7,7 +7,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import styled from 'styled-components'
 import { createStructuredSelector } from 'reselect'
 import { compose } from 'redux'
 
@@ -26,11 +25,7 @@ import reducer from './reducer'
 import saga from './saga'
 import messages from './messages'
 
-const EvolutionsWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-`
+import { EvolutionsWrapper } from './styles'
 
 export function PokemonEvolutions(props) {
   useInjectReducer({ key: 'pokemonEvolutions', reducer })

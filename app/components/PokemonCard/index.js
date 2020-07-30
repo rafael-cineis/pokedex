@@ -6,49 +6,21 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import startCase from 'lodash/startCase'
-
-import Pokeball from 'images/pokeball.png'
 
 import {
   POKEMON_DETAILS_PATH,
   POKEMON_NAME_PARAM,
 } from 'containers/App/urls'
+import Pokeball from 'images/pokeball.png'
 import history from 'utils/history'
 import FavoriteButton from 'containers/FavoriteButton'
 
-const StyledPokemonCard = styled.a`
-  padding: 8px;
-  margin: 8px 16px;
-  background: #fff;
-  cursor: pointer;
-  transition: ease 0.2s;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 20px;
-  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
-  outline: none;
-
-  &:hover {
-    transform: scale(1.01);
-  }
-
-  &:active {
-    transform: scale(1.00);
-  }
-
-  img {
-    width: 300px;
-  }
-`
-const PokemonName = styled.h4`
-  font-weight: bold;
-`
-
-const NumberWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
+import {
+  StyledPokemonCard,
+  PokemonName,
+  NumberWrapper,
+} from './styles'
 
 function PokemonCard(props) {
   const { name, number } = props
