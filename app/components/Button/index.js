@@ -10,7 +10,7 @@ import styled from 'styled-components'
 
 const StyledButton = styled.button`
   outline: none;
-  background: #fe0001;
+  background: #3b4cca;
   border: none;
   border-radius: 16px;
   width: 296px;

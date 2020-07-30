@@ -17,4 +17,8 @@ export default defineMessages({
     id: `${scope}.loadMorePokemons`,
     defaultMessage: 'Carregar mais Pokémon',
   },
+  searchByNameOrNumber: {
+    id: `${scope}.searchByNameOrNumber`,
+    defaultMessage: 'Procurar por Nome ou Número',
+  },
 })
