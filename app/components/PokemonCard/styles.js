@@ -18,10 +18,6 @@ export const StyledPokemonCard = styled.a`
   &:active {
     transform: scale(1.00);
   }
-
-  img {
-    width: 300px;
-  }
 `
 export const PokemonName = styled.h4`
   font-weight: bold;
@@ -30,4 +26,14 @@ export const PokemonName = styled.h4`
 export const NumberWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+`
+
+export const ImageWrapper = styled.div`
+  height: 300px;
+
+  img {
+    width: 300px;
+    height: auto;
+    max-height: 100%;
+  }
 `

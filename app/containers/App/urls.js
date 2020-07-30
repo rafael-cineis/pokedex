@@ -3,6 +3,7 @@ export const POKEMON_NAME_PARAM = 'pokemonName'
 
 // Routes Paths
 export const POKEMON_DETAILS_PATH = `/pokemon/:${POKEMON_NAME_PARAM}`
+export const POKEMON_FAVORITE_LIST_PATH = '/favorites'
 
 // API Urls
 export const BASE_POKEAPI = 'https://pokeapi.co/api/v2'

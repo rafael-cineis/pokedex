@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import startCase from 'lodash/startCase'
+import get from 'lodash/get'
 
 import {
   POKEMON_DETAILS_PATH,
@@ -20,6 +21,7 @@ import {
   StyledPokemonCard,
   PokemonName,
   NumberWrapper,
+  ImageWrapper,
 } from './styles'
 
 function PokemonCard(props) {
@@ -38,7 +40,9 @@ function PokemonCard(props) {
         and we don't want to do a lot of uncessary requests here, leave to fetch
         the image inside the pokemon details page.
       */}
-      <img src={Pokeball} alt="Pokeball" />
+      <ImageWrapper>
+        <img src={get(props, 'sprites.other.dream_world.front_default', Pokeball)} alt="Pokeball" />
+      </ImageWrapper>
       <NumberWrapper>
         {`Nº ${pokemonNumberZeroFilled}`}
         <FavoriteButton pokemonId={name} />

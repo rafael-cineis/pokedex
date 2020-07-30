@@ -21,4 +21,8 @@ export default defineMessages({
     id: `${scope}.searchByNameOrNumber`,
     defaultMessage: 'Procurar por Nome ou Número',
   },
+  showFavoritePokemonsOnly: {
+    id: `${scope}.showFavoritePokemonsOnly`,
+    defaultMessage: 'Mostrar Pokémons Favoritos',
+  },
 })
