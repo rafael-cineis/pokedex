@@ -16,6 +16,10 @@ export const ContentWrapper = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+
+    img {
+      max-width: 320px;
+    }
   }
 
   .nameContainer > * {

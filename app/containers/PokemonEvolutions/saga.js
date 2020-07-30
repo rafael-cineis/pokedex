@@ -27,8 +27,11 @@ export function* fetchPokemonEvolutions(action) {
 
   // Get evolution chain
   const evolutionChain = yield call(request, species.evolution_chain.url, { method: 'GET' })
+  const evolutionNames = [
+    evolutionChain.chain.species.name,
+    ...getEvolutionsNames(evolutionChain.chain.evolves_to[0]),
+  ]
 
-  const evolutionNames = getEvolutionsNames(evolutionChain.chain.evolves_to[0])
   // Get each evolution details so we can use their image and name
   const evolutionDetails = yield all(evolutionNames.map(pokemonName => call(fetchPokemon, pokemonName)))
 
