@@ -39,7 +39,7 @@ export function PokedexListPage(props) {
   const renderPokemonCards = () => props.pokemonList.map((pokemon, index) => (
     <PokemonCard
       key={pokemon.url}
-      number={index}
+      number={index + 1}
       {...pokemon}
     />
   ))

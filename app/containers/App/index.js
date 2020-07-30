@@ -12,6 +12,9 @@ import { Switch, Route } from 'react-router-dom'
 
 import NotFoundPage from 'containers/NotFoundPage/Loadable'
 import PokedexListPage from 'containers/PokedexListPage'
+import PokemonDetails from 'containers/PokemonDetails'
+
+import { POKEMON_DETAILS_PATH } from './urls'
 
 import GlobalStyle from '../../global-styles'
 
@@ -20,6 +23,7 @@ export default function App() {
     <div>
       <Switch>
         <Route exact path="/" component={PokedexListPage} />
+        <Route exact path={POKEMON_DETAILS_PATH} component={PokemonDetails} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

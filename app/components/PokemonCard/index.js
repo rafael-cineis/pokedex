@@ -11,7 +11,13 @@ import startCase from 'lodash/startCase'
 
 import Pokeball from 'images/pokeball.png'
 
-const PokemonButton = styled.div`
+import history from 'utils/history'
+import {
+  POKEMON_DETAILS_PATH,
+  POKEMON_NAME_PARAM,
+} from 'containers/App/urls'
+
+const PokemonButton = styled.button`
   padding: 8px;
   margin: 8px 16px;
   background: #fff;
@@ -37,8 +43,16 @@ function PokemonCard(props) {
   const { name, number } = props
   const pokemonNumberZeroFilled = number.toString().padStart(3, '0')
 
+  const handleClick = () => {
+    const path = POKEMON_DETAILS_PATH.replace(`:${POKEMON_NAME_PARAM}`, name)
+    history.push(path)
+  }
+
   return (
-    <PokemonButton>
+    <PokemonButton
+      type="button"
+      onClick={handleClick}
+    >
       {/*
         Placeholder image as PokeAPI doesn't return the Pokemon image in the list
         and we don't want to do a lot of uncessary requests here, leave to fetch
@@ -58,7 +72,6 @@ function PokemonCard(props) {
 PokemonCard.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.number.isRequired,
-  // url: PropTypes.string.isRequired,
 }
 
 export default PokemonCard
