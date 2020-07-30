@@ -37,7 +37,7 @@ const PokemonButton = styled.button`
   }
 
   img {
-    width: 320px;
+    width: 300px;
   }
 `
 const PokemonName = styled.h4`

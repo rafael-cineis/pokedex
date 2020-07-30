@@ -15,12 +15,24 @@ import { compose } from 'redux'
 import { useInjectSaga } from 'utils/injectSaga'
 import { useInjectReducer } from 'utils/injectReducer'
 import PokemonCard from 'components/PokemonCard'
+import Text from 'components/Text'
+import Button from 'components/Button'
+import Loader from 'components/Loader'
 
-import { makeSelectPokemonListResult } from './selectors'
+import {
+  selectPokemonListResult,
+  selectPokemonListIsLoading,
+} from './selectors'
 import reducer from './reducer'
 import saga from './saga'
 import messages from './messages'
 import { fetchPokemons } from './actions'
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const PokemonList = styled.div`
   display: flex;
@@ -33,7 +45,9 @@ export function PokedexListPage(props) {
   useInjectSaga({ key: 'pokedexListPage', saga })
 
   useEffect(() => {
-    props.fetchPokemons()
+    if (!props.pokemonList.length) {
+      props.fetchPokemons()
+    }
   }, [])
 
   const renderPokemonCards = () => props.pokemonList.map((pokemon, index) => (
@@ -45,22 +59,34 @@ export function PokedexListPage(props) {
   ))
 
   return (
-    <div>
-      <FormattedMessage {...messages.pokedex} />
+    <Wrapper>
+      <Text bold big>
+        <FormattedMessage {...messages.pokedex} />
+      </Text>
       <PokemonList>
         {renderPokemonCards()}
       </PokemonList>
-    </div>
+      {props.isLoading ? <Loader /> : (
+        <Button
+          id="loadMorePokemons"
+          onClick={props.fetchPokemons}
+        >
+          <FormattedMessage {...messages.loadMorePokemons} />
+        </Button>
+      )}
+    </Wrapper>
   )
 }
 
 PokedexListPage.propTypes = {
   fetchPokemons: PropTypes.func.isRequired,
   pokemonList: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 }
 
 const mapStateToProps = createStructuredSelector({
-  pokemonList: makeSelectPokemonListResult,
+  pokemonList: selectPokemonListResult,
+  isLoading: selectPokemonListIsLoading,
 })
 
 function mapDispatchToProps(dispatch) {

@@ -13,4 +13,8 @@ export default defineMessages({
     id: `${scope}.pokedex`,
     defaultMessage: 'Pokédex',
   },
+  loadMorePokemons: {
+    id: `${scope}.loadMorePokemons`,
+    defaultMessage: 'Carregar mais Pokémon',
+  },
 })
