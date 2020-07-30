@@ -14,6 +14,7 @@ import isEmpty from 'lodash/isEmpty'
 import { useInjectSaga } from 'utils/injectSaga'
 import { useInjectReducer } from 'utils/injectReducer'
 import Text from 'components/Text'
+import Loader from 'components/Loader'
 
 import { POKEMON_NAME_PARAM } from 'containers/App/urls'
 
@@ -61,7 +62,7 @@ export function PokemonDetails(props) {
     )
   }
 
-  return isLoading ? null : renderDetails()
+  return isLoading ? <Loader /> : renderDetails()
 }
 
 PokemonDetails.propTypes = {
