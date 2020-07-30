@@ -19,6 +19,12 @@ const Wrapper = styled.div`
   border-radius: 8px;
   background-color: #a4a4a4;
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+
+  .statsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `
 
 const StatsField = styled(Field)`
@@ -40,7 +46,7 @@ function PokemonStats({ stats }) {
   return (
     <Wrapper>
       <Label label={messages.stats} />
-      <div>
+      <div className="statsContainer">
         <StatsField color="#c11d1d" label={messages.hp} value={hp.base_stat} />
         <StatsField color="#06f" label={messages.attack} value={attack.base_stat} />
         <StatsField color="#777" label={messages.defense} value={defense.base_stat} />

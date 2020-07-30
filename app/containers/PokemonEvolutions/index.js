@@ -29,6 +29,7 @@ import messages from './messages'
 const EvolutionsWrapper = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 `
 
 export function PokemonEvolutions(props) {

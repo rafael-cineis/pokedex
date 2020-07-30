@@ -14,7 +14,6 @@ import isEmpty from 'lodash/isEmpty'
 
 import { useInjectSaga } from 'utils/injectSaga'
 import { useInjectReducer } from 'utils/injectReducer'
-import Text from 'components/Text'
 import Loader from 'components/Loader'
 import Field from 'components/Field'
 import PokemonTypeField from 'components/PokemonTypeField'
@@ -33,6 +32,7 @@ import { fetchPokemonDetails } from './actions'
 import reducer from './reducer'
 import saga from './saga'
 import messages from './messages'
+import { ContentWrapper } from './styles'
 
 export function PokemonDetails(props) {
   useInjectReducer({ key: 'pokemonDetails', reducer })
@@ -66,22 +66,24 @@ export function PokemonDetails(props) {
     } = pokemon
 
     return (
-      <div>
-        <div>
+      <ContentWrapper>
+        <div className="infoContainer">
           <img src={sprites.other.dream_world.front_default} alt="Imagem Pokemon" />
-        </div>
-        <div>
-          <Text big uppercase bold>
-            {name}
-          </Text>
-          <FavoriteButton pokemonId={pokemonName} />
-          <Field
-            label={messages.height}
-            value={`${(height * 0.1).toFixed(2)}m`}
-          />
-          <PokemonTypeField
-            types={types}
-          />
+          <div>
+            <div className="nameContainer">
+              <h2 big uppercase bold>
+                {name}
+              </h2>
+              <FavoriteButton pokemonId={pokemonName} />
+            </div>
+            <Field
+              label={messages.height}
+              value={`${(height * 0.1).toFixed(2)}m`}
+            />
+            <PokemonTypeField
+              types={types}
+            />
+          </div>
         </div>
         <div>
           <PokemonStats stats={stats} />
@@ -89,7 +91,7 @@ export function PokemonDetails(props) {
         <div>
           <PokemonEvolutions pokemon={pokemon} />
         </div>
-      </div>
+      </ContentWrapper>
     )
   }
 
