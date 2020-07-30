@@ -5,6 +5,7 @@
  */
 
 import React, { useEffect } from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
@@ -13,11 +14,19 @@ import { compose } from 'redux'
 
 import { useInjectSaga } from 'utils/injectSaga'
 import { useInjectReducer } from 'utils/injectReducer'
+import PokemonCard from 'components/PokemonCard'
+
 import { makeSelectPokemonListResult } from './selectors'
 import reducer from './reducer'
 import saga from './saga'
 import messages from './messages'
 import { fetchPokemons } from './actions'
+
+const PokemonList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`
 
 export function PokedexListPage(props) {
   useInjectReducer({ key: 'pokedexListPage', reducer })
@@ -27,9 +36,20 @@ export function PokedexListPage(props) {
     props.fetchPokemons()
   }, [])
 
+  const renderPokemonCards = () => props.pokemonList.map((pokemon, index) => (
+    <PokemonCard
+      key={pokemon.url}
+      number={index}
+      {...pokemon}
+    />
+  ))
+
   return (
     <div>
       <FormattedMessage {...messages.pokedex} />
+      <PokemonList>
+        {renderPokemonCards()}
+      </PokemonList>
     </div>
   )
 }
