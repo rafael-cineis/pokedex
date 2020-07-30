@@ -17,6 +17,7 @@ import Text from 'components/Text'
 import Loader from 'components/Loader'
 import Field from 'components/Field'
 import PokemonTypeField from 'components/PokemonTypeField'
+import PokemonStats from 'components/PokemonStats'
 
 import { POKEMON_NAME_PARAM } from 'containers/App/urls'
 
@@ -56,25 +57,29 @@ export function PokemonDetails(props) {
       name,
       sprites,
       types,
+      stats,
     } = pokemon
 
     return (
       <div>
-        <img src={sprites.other.dream_world.front_default} alt="Imagem Pokemon" />
-        <Text
-          big
-          uppercase
-          bold
-        >
-          {name}
-        </Text>
-        <Field
-          label={messages.height}
-          value={`${(height * 0.1).toFixed(2)}m`}
-        />
-        <PokemonTypeField
-          types={types}
-        />
+        <div>
+          <img src={sprites.other.dream_world.front_default} alt="Imagem Pokemon" />
+        </div>
+        <div>
+          <Text big uppercase bold>
+            {name}
+          </Text>
+          <Field
+            label={messages.height}
+            value={`${(height * 0.1).toFixed(2)}m`}
+          />
+          <PokemonTypeField
+            types={types}
+          />
+        </div>
+        <div>
+          <PokemonStats stats={stats} />
+        </div>
       </div>
     )
   }

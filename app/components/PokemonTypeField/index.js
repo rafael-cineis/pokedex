@@ -21,8 +21,9 @@ function PokemonTypeField(props) {
     <div>
       <Label label={message.type} />
       <div>
-        {types.map(({ type }) => (
+        {types.map(({ type, slot }) => (
           <PokemonType
+            key={slot}
             type={type.name}
           />
         ))}

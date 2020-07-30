@@ -16,7 +16,7 @@ function Field(props) {
   } = props
 
   return (
-    <div>
+    <div className={props.className}>
       <Label label={label} />
       <div>
         {value}
@@ -30,7 +30,8 @@ Field.propTypes = {
     id: PropTypes.string,
     defaultMessage: PropTypes.string,
   }).isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.any.isRequired,
+  className: PropTypes.string.isRequired,
 }
 
 export default Field
