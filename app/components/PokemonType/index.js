@@ -34,7 +34,7 @@ function PokemonType(props) {
 
   return (
     <TypeCard color={color}>
-      <Text uppercase medium small light>
+      <Text uppercase medium small semiBold white>
         {typeMessage ? (
           <FormattedMessage {...typeMessage} />
         ) : type}

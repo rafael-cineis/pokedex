@@ -34,6 +34,10 @@ const UppercaseText = css`
   text-transform: uppercase;
 `
 
+const WhiteText = css`
+  color: white;
+`
+
 const Text = styled.p`
   margin: 0;
 
@@ -47,6 +51,7 @@ const Text = styled.p`
   ${props => props.semiBold && SemiBoldText}
   ${props => props.light && LightText}
   ${props => props.uppercase && UppercaseText}
+  ${props => props.white && WhiteText}
 `
 
 export default Text
