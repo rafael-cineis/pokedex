@@ -34,7 +34,7 @@ const UppercaseText = css`
   text-transform: uppercase;
 `
 
-const Text = styled.span`
+const Text = styled.p`
   margin: 0;
 
   font-size: 1em;
