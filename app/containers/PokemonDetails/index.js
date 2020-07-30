@@ -15,6 +15,8 @@ import { useInjectSaga } from 'utils/injectSaga'
 import { useInjectReducer } from 'utils/injectReducer'
 import Text from 'components/Text'
 import Loader from 'components/Loader'
+import Field from 'components/Field'
+import PokemonTypeField from 'components/PokemonTypeField'
 
 import { POKEMON_NAME_PARAM } from 'containers/App/urls'
 
@@ -25,6 +27,7 @@ import {
 import { fetchPokemonDetails } from './actions'
 import reducer from './reducer'
 import saga from './saga'
+import messages from './messages'
 
 export function PokemonDetails(props) {
   useInjectReducer({ key: 'pokemonDetails', reducer })
@@ -48,16 +51,30 @@ export function PokemonDetails(props) {
       return null
     }
 
+    const {
+      height,
+      name,
+      sprites,
+      types,
+    } = pokemon
+
     return (
       <div>
+        <img src={sprites.other.dream_world.front_default} alt="Imagem Pokemon" />
         <Text
           big
           uppercase
           bold
         >
-          {pokemon.name}
+          {name}
         </Text>
-        <img src={pokemon.sprites.other.dream_world.front_default} alt="Imagem Pokemon" />
+        <Field
+          label={messages.height}
+          value={`${(height * 0.1).toFixed(2)}m`}
+        />
+        <PokemonTypeField
+          types={types}
+        />
       </div>
     )
   }

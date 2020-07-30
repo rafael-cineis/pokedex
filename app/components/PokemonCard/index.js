@@ -26,9 +26,14 @@ const PokemonButton = styled.button`
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 20px;
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
 
   &:hover {
     transform: scale(1.01);
+  }
+
+  &:active {
+    transform: scale(1.00);
   }
 
   img {

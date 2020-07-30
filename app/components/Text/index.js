@@ -27,7 +27,7 @@ const MediumText = css`
 `
 
 const SmallText = css`
-  font-size: 12px;
+  font-size: 14px;
 `
 
 const UppercaseText = css`
