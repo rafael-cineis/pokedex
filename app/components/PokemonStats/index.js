@@ -15,9 +15,9 @@ import messages from './messages'
 
 const Wrapper = styled.div`
   display: inline-block;
-  padding: 8px;
-  border-radius: 8px;
-  background-color: #a4a4a4;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
 
   .statsContainer {
