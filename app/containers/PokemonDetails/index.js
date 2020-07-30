@@ -71,7 +71,7 @@ export function PokemonDetails(props) {
           <img src={sprites.other.dream_world.front_default} alt="Imagem Pokemon" />
           <div>
             <div className="nameContainer">
-              <h2 big uppercase bold>
+              <h2>
                 {name}
               </h2>
               <FavoriteButton pokemonId={pokemonName} />
